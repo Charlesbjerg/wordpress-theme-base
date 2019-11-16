@@ -1,10 +1,11 @@
 <?php
 /**
- * wordpress-base-theme functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package wordpress-base-theme
+ * TODO: Remove all the boilerplate code from blankslate
+ * TODO: Build up the core folder
+ * TODO: Setup helper functions that are always used
+ * TODO: Setup theme to mirror a normal build
+ * 		 - Setup posts/pages/loops correcly
+ * 		 - Add in pagination and breadcrumbs
  */
 
 if ( ! function_exists( 'wordpress_base_theme_setup' ) ) :

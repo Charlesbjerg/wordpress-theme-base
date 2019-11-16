@@ -1,13 +1,13 @@
-// Gulp.js configuration
-'use strict';
+// TODO: Setup gulp to work with scss, js, npm and images?
 
+// Gulp.js configuration
 const
 
   // source and build folders
   dir = {
-    base        : __dirname,
+    // base        : __dirname,
     src         : 'src/',
-    build       : 'dist/'
+    build       : 'css/'
   },
 
   // Gulp and plugins
@@ -28,16 +28,16 @@ var browsersync = false;
 
 
 // PHP Tasks
-const php = {
-  src           : dir.src + 'template/**/*.php',
-  build         : dir.build
-};
+// const php = {
+//   src           : dir.src + 'template/**/*.php',
+//   build         : dir.build
+// };
 
-gulp.task('php', () => {
-  return gulp.src(php.src)
-    .pipe(newer(php.build))
-    .pipe(gulp.dest(php.build));
-});
+// gulp.task('php', () => {
+//   return gulp.src(php.src)
+//     .pipe(newer(php.build))
+//     .pipe(gulp.dest(php.build));
+// });
 
 // Image Tasks
 const images = {
@@ -67,7 +67,7 @@ var css = {
         require('postcss-assets')({
         loadPaths: ['images/'],
         basePath: dir.base,
-        baseUrl: '/wp-content/themes/wptheme/'
+        baseUrl: '/wp-content/themes/custom/'
         }),
         require('autoprefixer'),
         require('css-mqpacker'),
@@ -75,10 +75,11 @@ var css = {
     ]
 };
 
-gulp.task('css', ['images'], () => {
+gulp.task('css', () => {
 return gulp.src(css.src)
     .pipe(sass(css.sassOpts))
     .pipe(postcss(css.processors))
     .pipe(gulp.dest(css.build));
-    // .pipe(browsersync ? browsersync.reload({ stream: true }) : gutil.noop());
 });
+
+exports.default = gulp.series('css', 'images');
