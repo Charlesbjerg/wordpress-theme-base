@@ -1,4 +1,5 @@
 WordPress Theme Base
 ======================
 
-Readme content to be updated
+A blankslate like theme base for WordPress, tailored for myself. 
+Uses Gulp with SCSS to build css. 
